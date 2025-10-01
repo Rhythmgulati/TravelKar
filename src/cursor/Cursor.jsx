@@ -4,7 +4,6 @@ function Cursor({ position }) {
   const [trailPos, setTrailPos] = useState({ x: 0, y: 0 });
   const posRef = useRef(position);
 
-  // keep latest mouse position in a ref
   useEffect(() => {
     posRef.current = position;
   }, [position]);

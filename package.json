@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.1.13",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-smooth-scrolll": "^0.1.2",
     "smooth-scrollbar-react": "^2.4.1",
     "tailwindcss": "^4.1.13"
   },
