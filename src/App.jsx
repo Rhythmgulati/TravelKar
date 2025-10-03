@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Cursor from "./cursor/Cursor";
 import { SmoothScroll } from "react-smooth-scrolll";
+import dotenv from "dotenv";
+// dotenv.config();
 
 export default function App() {
   const [place, setPlace] = useState("");
@@ -189,16 +191,13 @@ export default function App() {
     setResult(null);
 
     try {
-      const res = await fetch(
-        "https://n8n-dnv8.onrender.com/webhook/b1a7b181-51e0-4296-a33a-574f7f013b54",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ place: place.trim(), startDate, endDate }),
-        }
-      );
+      const res = await fetch(import.meta.env.VITE_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ place: place.trim(), startDate, endDate }),
+      });
 
       if (!res.ok) {
         const text = await res.text();
@@ -211,7 +210,7 @@ export default function App() {
 
       console.log(data[0].output);
 
-      setResult(data[0].output);
+      setResult(data[0].output || data.output || data);
 
       scrollkar();
     } catch (err) {
@@ -331,7 +330,6 @@ export default function App() {
           </div>
         </header>
 
-        {/* Result area */}
         {result ? (
           <main className="space-y-8 px-12 pt-10 bg-[#353F4A] relative">
             <Cursor position={cursorPosition} />
@@ -475,7 +473,7 @@ export default function App() {
                               href={h.url}
                               target="_blank"
                               rel="noreferrer"
-                              className="text-xl px-3 py-1 border rounded bg-indigo-600 text-white"
+                              className="text-sm px-3 py-1 border rounded bg-indigo-600 text-white"
                             >
                               Book
                             </a>
