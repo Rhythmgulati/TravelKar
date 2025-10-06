@@ -3,6 +3,9 @@
 **TravelKar v2** is a modern, component-based travel exploration web application built using **React** and **Tailwind CSS**.  
 It enhances the original HTML/CSS/JS version by introducing reusable components, better performance, and smoother interactivity.  
 
+### 🔗 Commit & Deployment Links
+https://travelkar.netlify.app/
+
 ---
 
 ## 🚀 Features
@@ -78,8 +81,6 @@ This React version enhanced my understanding of:
 
 ---
 
-### 🔗 Commit & Deployment Links
 
-- **GitHub Repository:** `[Your Repo Link Here]`  
-- **Live Demo (Vercel):** `[Your Deployed Link Here]`
+
 
